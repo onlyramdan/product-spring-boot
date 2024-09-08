@@ -1,6 +1,7 @@
 package com.domain.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.domain.models.entities.Category;
@@ -30,6 +31,13 @@ public class CategoryService {
     public void removeOne(Long id){
         categoryRepo.deleteById(id);
     }
+    
+    public Iterable<Category> findByName(String name, Pageable pageable){
+        return categoryRepo.findByNameContains(name, pageable);
+    }
 
+    public Iterable<Category> CreateAll(Iterable<Category> catergories){
+        return categoryRepo.saveAll(catergories);
+    }
 
 }

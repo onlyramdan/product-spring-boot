@@ -10,7 +10,10 @@ public interface SupplierRepo extends CrudRepository<Supplier, Long> {
     
     Supplier findByEmail(String email);
 
-    List<Supplier> findByNameContains(String name);
+    List<Supplier> findByNameContainsOrderByIdDesc(String name);
 
     List<Supplier> findByNameStartingWith(String name);
+
+    List<Supplier> findByNameContainsOrEmailContains(String name, String email);
+
 }

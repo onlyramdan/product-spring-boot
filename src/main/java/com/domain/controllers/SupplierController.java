@@ -101,4 +101,10 @@ public class SupplierController {
     public List<Supplier> findByNameStartingWith(@RequestBody SearchData searchData){
       return supplierService.findbyNameStartingWith(searchData.getSearchKey());
     }
+
+    @PostMapping("/search/bynameoremail")    
+    public List<Supplier> findByNameOrEmail(@RequestBody SearchData searchData){
+      return supplierService.findbyNameOrEmail(searchData.getSearchKey(), searchData.getOtherSearchKey());
+    }
+
 }
