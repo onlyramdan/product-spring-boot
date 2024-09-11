@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "tbl_categories")
-public class Category implements Serializable {
+public class Category extends BaseEntity<String> implements Serializable {
     private static final long serialVersionUID = 1L;
     
     @Id    
@@ -21,10 +21,10 @@ public class Category implements Serializable {
     @Column(length = 100, nullable = false, unique = true)
     private String name;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
     public String getName() {
